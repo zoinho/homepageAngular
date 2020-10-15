@@ -1,0 +1,102 @@
+@import "./../../assets/styles/variables.scss";
+
+.polygon {
+  width: 30rem;
+  height: 15rem;
+  position: fixed;
+  transform: translateZ(0);
+  fill: $darkGreen;
+  stroke-width: 0px;
+  stroke: $dark;
+  overflow: visible;
+  &:nth-child(odd) {
+    animation-name: rotateClockwise;
+  }
+  &:nth-child(even) {
+    animation-name: rotateAntiClockwise;
+  }
+  polygon {
+    transform-origin: center center;
+  }
+}
+
+@keyframes rotateClockwise {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotateAntiClockwise {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+@for $i from 0 through 15 {
+  .polygon-#{$i} {
+    filter: blur(10px);
+
+    opacity: 0.25;
+    animation-delay: 0;
+    animation-duration: 300s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+}
+
+@for $i from 16 through 25 {
+  .polygon-#{$i} {
+    filter: blur(5px);
+
+    opacity: 0.55;
+    animation-delay: 0;
+    animation-duration: 150s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+}
+
+@for $i from 26 through 40 {
+  .polygon-#{$i} {
+    filter: blur(0px);
+
+    opacity: 0.7;
+    animation-delay: 0;
+    animation-duration: 150s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  @for $i from 0 through 2 {
+    .polygon-#{$i} {
+      opacity: 0.25;
+      filter: blur(10px);
+    }
+  }
+
+  @for $i from 3 through 6 {
+    .polygon-#{$i} {
+      opacity: 0.55;
+      filter: blur(5px);
+    }
+  }
+
+  @for $i from 7 through 10 {
+    .polygon-#{$i} {
+      opacity: 1;
+      filter: blur(0px);
+    }
+  }
+  @for $i from 8 through 20 {
+    .polygon-#{$i} {
+      display: none;
+    }
+  }
+}

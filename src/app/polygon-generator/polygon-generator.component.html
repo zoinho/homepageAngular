@@ -1,0 +1,7 @@
+
+    <svg *ngFor="let polygon of polygonArray; let i = index" class="polygon" 
+    [ngClass]="'polygon-'+i" 
+    [style.top.px]="polygon.positionY" 
+    [style.left.px]='polygon.positionX' >
+        <polygon [attr.points]="polygon.combinedPoints" [style.transform]="'translate(-33%, -67%) skew('+ polygon.skewX +'deg,'+ polygon.skewY +'deg)'"/>
+    </svg>
