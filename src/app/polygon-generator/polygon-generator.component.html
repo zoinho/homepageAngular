@@ -1,7 +1,10 @@
-
-    <svg *ngFor="let polygon of polygonArray; let i = index" class="polygon" 
+    <span [ngClass]="{blur: appService.blurBackground$ | async}"><svg *ngFor="let polygon of polygonArray; let i = index" class="polygon" 
     [ngClass]="'polygon-'+i" 
     [style.top.px]="polygon.positionY" 
     [style.left.px]='polygon.positionX' >
-        <polygon [attr.points]="polygon.combinedPoints" [style.transform]="'translate(-33%, -67%) skew('+ polygon.skewX +'deg,'+ polygon.skewY +'deg)'"/>
+    <g [ngClass]="polygon.layer">
+        <polygon [attr.points]="polygon.combinedPoints" [style.transform]="'translate(-33%, -67%) skew('+ polygon.skewX +'deg,'+ polygon.skewY +'deg) scale('+ polygon.scale +')'"/>
+    </g>
     </svg>
+    <div class="polygon__glass"></div>
+</span>

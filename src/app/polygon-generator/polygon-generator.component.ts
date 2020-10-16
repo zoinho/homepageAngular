@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { AppService } from '../app.service';
 
 interface Polygon {
   startPoint: Coordinate;
@@ -11,6 +13,7 @@ interface Polygon {
   skewX: number;
   skewY: number;
   scale: number;
+  layer: string;
 }
 interface Coordinate {
   x: number;
@@ -21,7 +24,6 @@ interface Coordinate {
   selector: 'app-polygon-generator',
   templateUrl: './polygon-generator.component.html',
   styleUrls: ['./polygon-generator.component.scss'],
-  
 })
 
 
@@ -30,22 +32,42 @@ export class PolygonGeneratorComponent implements OnInit {
   polygonArray: Polygon[] = [];
   windowWidth = window.innerWidth;
   windowHeight = window.innerHeight;
-  maxWidth = 100;
-  maxHeight = 250;
-  
-  constructor() { }
+  @HostListener('mousemove', ['$event'])
+  onMouseMove(event) {
+    const topLayer = document.querySelectorAll('.top');
+    const middleLayer = document.querySelectorAll('.middle');
+    const bottomLayer = document.querySelectorAll('.bottom');
+    topLayer.forEach(x => {
+      x.setAttribute('style', `transform:translate3d(${-event.offsetX*0.2}px,${-event.offsetY*0.2}px,0)`)
+    })
+    middleLayer.forEach(x => {
+      x.setAttribute('style', `transform:translate3d(${-event.offsetX*0.07}px,${-event.offsetY*0.07}px,0)`)
+    })
+    bottomLayer.forEach(x => {
+      x.setAttribute('style', `transform:translate3d(${-event.offsetX*0.03}px,${-event.offsetY*0.02}px,0)`)
+    })
+  }
+
+  constructor(public appService: AppService) { }
 
   ngOnInit(): void {
     for(let i=0; i< this.polygonCount; i++) {
-      this.polygonArray.push(this.createRandomPolygon(this.maxWidth, this.maxHeight))
+      this.polygonArray.push(this.createRandomPolygon(this.windowWidth/10, this.windowHeight/10, i))
     }
     this.polygonArray.forEach( x => {
       x.combinedPoints = ''+x.startPoint.x+','+x.startPoint.y+' '+x.middlePoint.x+','+x.middlePoint.y+' '+x.endPoint.x+','+x.endPoint.y
     })
-    console.log(this.polygonArray)
+    this.appService.blurBackgroundOff();
   }
-  createRandomPolygon(maxWidth, maxHeight):Polygon {
-
+  createRandomPolygon(maxWidth, maxHeight, i):Polygon {
+    let layer: string;
+    if(i<= 40) {
+      layer = 'bottom';
+    }else if (i<=60) {
+      layer = 'middle';
+    } else {
+      layer = 'top'
+    }
     return {
       startPoint: {
         x: maxWidth,
@@ -59,12 +81,12 @@ export class PolygonGeneratorComponent implements OnInit {
         x: 2*maxHeight-maxWidth,
         y: maxWidth
       },
-      positionX: Math.floor(Math.random() * (this.windowWidth/1.1)),
-      positionY: Math.floor(Math.random() * (this.windowHeight/1.1)),
-      skewX: Math.floor(Math.random() * 40),
-      skewY: Math.floor(Math.random() * 50),
-
-      scale: Math.floor(Math.random() * (1 * 3 - 1.3 * 3) + 1.3 * 3) / (1.3*3)
+      positionX: Math.random() * (this.windowWidth/1.025),
+      positionY: Math.random() * (this.windowHeight/1.025),
+      skewX: Math.random() * 30,
+      skewY: Math.random() * 30,
+      scale: 0.5 + 1.5 *Math.random(),
+      layer: layer
       
     }
 

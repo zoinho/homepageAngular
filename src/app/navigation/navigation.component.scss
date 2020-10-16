@@ -1,0 +1,26 @@
+@import "./../../assets/styles/variables.scss";
+
+.navigation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20rem;
+  height: 100%;
+  z-index: 5;
+  &__list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+}
+.navitem {
+  background: red;
+  padding: 1rem 0;
+  margin: 1rem 0;
+  font-size: 1.6rem;
+  &.active {
+    background: green;
+  }
+}
