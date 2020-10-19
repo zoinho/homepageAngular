@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
 import { AppService } from '../app.service';
 
@@ -9,21 +10,22 @@ import { AppService } from '../app.service';
 })
 export class NavigationComponent implements OnInit {
 
-  constructor(private appService: AppService) { }
+  constructor(private appService: AppService, private router: Router) {
+
+
+   }
   subscription: Subscription;
   state$: Observable<boolean>
 
   ngOnInit(): void {
     this.state$ = this.appService.blurBackground$;
   }
-  toggleBlur(){
-    if(this.appService.getValue()) {
-      this.appService.blurBackgroundOff();
+  toggleLink(route) {
+    if(this.router.url == route) {
+      this.router.navigate(['/'])
     } else {
-      this.appService.blurBackgroundOn()
+      this.router.navigate([route])
     }
-
-    
   }
   ngOnDestroy() {
   }

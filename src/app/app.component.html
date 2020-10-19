@@ -1,3 +1,5 @@
 <app-polygon-generator></app-polygon-generator>
 <app-navigation></app-navigation>
-<router-outlet></router-outlet>
+<section [@routeAnimations]= prepareOutlet(outlet) >
+            <router-outlet #outlet="outlet"></router-outlet>
+</section>

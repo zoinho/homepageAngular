@@ -5,9 +5,9 @@
   height: 15rem;
   position: fixed;
   transform: translateZ(0);
-  fill: $darkGreen;
-  stroke-width: 0;
-  stroke: $dark;
+  fill: rgba($darkGreen, 0.3);
+  stroke-width: 0.2px;
+  stroke: $darkGreen;
   overflow: visible;
   transform-style: preserve-3d;
   &__glass {

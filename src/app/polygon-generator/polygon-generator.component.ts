@@ -52,7 +52,7 @@ export class PolygonGeneratorComponent implements OnInit {
 
   ngOnInit(): void {
     for(let i=0; i< this.polygonCount; i++) {
-      this.polygonArray.push(this.createRandomPolygon(this.windowWidth/10, this.windowHeight/10, i))
+      this.polygonArray.push(this.createRandomPolygon(this.windowWidth/((Math.random() * 3) + 7), this.windowHeight/((Math.random() * 3) + 7), i))
     }
     this.polygonArray.forEach( x => {
       x.combinedPoints = ''+x.startPoint.x+','+x.startPoint.y+' '+x.middlePoint.x+','+x.middlePoint.y+' '+x.endPoint.x+','+x.endPoint.y
@@ -61,9 +61,9 @@ export class PolygonGeneratorComponent implements OnInit {
   }
   createRandomPolygon(maxWidth, maxHeight, i):Polygon {
     let layer: string;
-    if(i<= 40) {
+    if(i<= 22) {
       layer = 'bottom';
-    }else if (i<=60) {
+    }else if (i<=30) {
       layer = 'middle';
     } else {
       layer = 'top'
@@ -81,10 +81,10 @@ export class PolygonGeneratorComponent implements OnInit {
         x: 2*maxHeight-maxWidth,
         y: maxWidth
       },
-      positionX: Math.random() * (this.windowWidth/1.025),
-      positionY: Math.random() * (this.windowHeight/1.025),
-      skewX: Math.random() * 30,
-      skewY: Math.random() * 30,
+      positionX: Math.floor(Math.random() * (this.windowWidth/1.025)),
+      positionY: Math.floor(Math.random() * (this.windowHeight/1.025)),
+      skewX: Math.random() * 17,
+      skewY: Math.random() * 17,
       scale: 0.5 + 1.5 *Math.random(),
       layer: layer
       
