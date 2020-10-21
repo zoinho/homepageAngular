@@ -1,5 +1,10 @@
 <app-polygon-generator></app-polygon-generator>
 <app-navigation></app-navigation>
-<section [@routeAnimations]= prepareOutlet(outlet) >
-            <router-outlet #outlet="outlet"></router-outlet>
+<section class="welcome" [ngClass]="{blur: appService.blurBackground$ | async}">
+    <h1 [@slideFromRight] class="welcome__header">Łukasz Milik</h1>
+    <h2 [@slideFromLeft] class="welcome__subheader">Frontend Develeoper</h2>
+</section>
+
+<section [@routeAnimations]= prepareOutlet(o) (@routeAnimations.done)="slideAnimationFinished($event)">
+            <router-outlet #o="outlet"></router-outlet>
 </section>

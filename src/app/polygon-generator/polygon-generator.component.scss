@@ -1,4 +1,5 @@
 @import "./../../assets/styles/variables.scss";
+@import "./../../assets/styles/animations.scss";
 
 .polygon {
   width: 30rem;
@@ -27,45 +28,6 @@
   }
   polygon {
     transform-origin: center center;
-  }
-}
-.blur {
-  display: block;
-  width: 100%;
-  height: 100%;
-  animation: blurBg 250ms 0ms ease-in-out;
-  animation-fill-mode: forwards;
-  overflow: hidden;
-  .polygon {
-    animation-play-state: paused;
-  }
-}
-
-@keyframes rotateClockwise {
-  0% {
-    transform: rotate3d(1, 1, 1, 0deg);
-  }
-  100% {
-    transform: rotate3d(1, 1, 1, 360deg);
-  }
-}
-@keyframes rotateAntiClockwise {
-  0% {
-    transform: rotate3d(1, 1, 1, 0deg);
-  }
-  100% {
-    transform: rotate3d(1, 1, 1, -360deg);
-  }
-}
-
-@keyframes blurBg {
-  0% {
-    background: rgba($dark, 0);
-    filter: blur(0px);
-  }
-  100% {
-    background: rgba($dark, 0.15);
-    filter: blur(10px);
   }
 }
 

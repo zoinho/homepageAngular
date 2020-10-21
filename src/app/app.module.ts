@@ -10,6 +10,7 @@ import { PolygonGeneratorComponent } from './polygon-generator/polygon-generator
 import { NavigationComponent } from './navigation/navigation.component';
 
 import { ExperienceComponent } from './experience/experience.component';
+import { LoaderComponent } from './loader/loader.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,6 +18,7 @@ import { ExperienceComponent } from './experience/experience.component';
     PolygonGeneratorComponent,
     NavigationComponent,
     ExperienceComponent,
+    LoaderComponent,
   ],
   imports: [
     BrowserModule,

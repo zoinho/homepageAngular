@@ -1,5 +1,4 @@
-import { animate, group, query, state, style, transition, trigger } from '@angular/animations';
-import { reduce } from 'rxjs/operators';
+import { animate, group, keyframes, query, state, style, transition, trigger } from '@angular/animations';
 
 export const routeAnimations =
 trigger('routeAnimations',[
@@ -43,24 +42,63 @@ trigger('routeAnimations',[
   ])
 ])
 
-
-// Fade Animation
-trigger('routeFadeAnimation', [
-    transition('* => *', [
-        query(':enter', [style({ opacity: 0 })], {
-        	optional: true,
+export const slideFromRight = 
+trigger('slideFromRight', [
+    transition(':enter', [
+        style({
+            transform: 'translate3d(150%, 0, 0)',
+            'margin-bottom': '-10rem'
         }),
-        group([
-            query(
-                ':leave',
-                [style({ opacity: 1 }), animate('0.2s', style({ opacity: 0 }))],
-                { optional: true }
-            ),
-            query(
-                ':enter',
-                [style({ opacity: 0 }), animate('0.5s', style({ opacity: 1 }))],
-                { optional: true }
-            ),
-        ]),
-    ]),
-]);
+            animate('4s cubic-bezier(0.27, 0.06, 0.25, 1)', keyframes([
+                style({
+                    transform: 'translate3d(30%,0rem,0)',
+                    offset: 0.1
+                }),
+                style({
+                    transform: 'translate3d(0%,0rem,0)',
+                    offset: 0.85
+                }),
+                style({
+                    transform: 'translate3d(0%,0rem,0)',
+                    'margin-bottom': '-10rem',
+                    offset: 0.9
+                }),
+                style({
+                    transform: 'translate3d(0%,0rem,0)',
+                    'margin-bottom': '0rem',
+                    offset: 1
+                }),
+                
+            ]))
+    ])
+  
+])
+
+export const slideFromLeft = 
+trigger('slideFromLeft', [
+    transition(':enter', [
+        style({
+            transform: 'translate3d(-150%, 0, 0)',
+        }),
+            animate('4s cubic-bezier(0.27, 0.06, 0.25, 1)', keyframes([
+                style({
+                    transform: 'translate3d(-30%,0rem,0)',
+                    offset: 0.1
+                }),
+                style({
+                    transform: 'translate3d(0%,0rem,0)',
+                    offset: 0.85
+                }),
+                style({
+                    transform: 'translate3d(0%,0rem,0)',
+                    offset: 0.9
+                }),
+                style({
+                    transform: 'translate3d(0%,0rem,0)',
+                    offset: 1
+                }),
+                
+            ]))
+    ])
+  
+])

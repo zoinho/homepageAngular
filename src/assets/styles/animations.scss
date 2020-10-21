@@ -1,0 +1,39 @@
+@keyframes blurBg {
+  0% {
+    background: rgba($dark, 0);
+    filter: blur(0px);
+  }
+  100% {
+    background: rgba($dark, 0.15);
+    filter: blur(10px);
+  }
+}
+
+@keyframes rotateClockwise {
+  0% {
+    transform: rotate3d(1, 1, 1, 0deg);
+  }
+  100% {
+    transform: rotate3d(1, 1, 1, 360deg);
+  }
+}
+@keyframes rotateAntiClockwise {
+  0% {
+    transform: rotate3d(1, 1, 1, 0deg);
+  }
+  100% {
+    transform: rotate3d(1, 1, 1, -360deg);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

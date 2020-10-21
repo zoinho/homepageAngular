@@ -1,1 +1,24 @@
 @import "./../assets/styles/variables.scss";
+
+.welcome {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  &__header {
+    font-size: 7vw;
+    color: $dark;
+    text-transform: uppercase;
+    font-weight: bold;
+    position: relative;
+  }
+  &__subheader {
+    font-size: 5vw;
+    position: relative;
+  }
+}

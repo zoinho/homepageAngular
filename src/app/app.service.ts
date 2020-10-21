@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { BehaviorSubject, Observable} from 'rxjs';
+import { BehaviorSubject, Observable, Subject} from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
@@ -9,22 +9,27 @@ export class AppService {
 
     constructor(){}
     private subPageOpen = new BehaviorSubject(false)
+    public animationFinished = new Subject;
 
     blurBackground$ : Observable<boolean> = this.subPageOpen.asObservable();
-
+    
 
     blurBackgroundOn() {
         this.subPageOpen.next(true);
-        console.log("true")
     }
     blurBackgroundOff() {
         this.subPageOpen.next(false);
-        console.log("false")
     }
+
+    animationDone() {
+        this.animationFinished.next(true);
+    }
+
     getValue() {
         return this.subPageOpen.getValue();
     }
 
+    
 
 
 }

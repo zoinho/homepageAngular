@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { Education } from './../interfaces';
 import {EducationService} from './education.service';
-import {tap} from 'rxjs/operators'
+import {first, tap} from 'rxjs/operators'
 import { AppService } from '../app.service';
 @Component({
   selector: 'app-education',
@@ -11,11 +11,26 @@ import { AppService } from '../app.service';
 })
 export class EducationComponent implements OnInit {
 
-  constructor(private educationService : EducationService, private appService: AppService) { }
   education$ : Observable<Education[]>;
+  animationDone = new Subject;
 
+  constructor(private educationService : EducationService, private appService: AppService) {
+
+    
+   }
+  
   ngOnInit(): void {
-    this.education$ = this.educationService.loadEducationFromApi();
+    this.animationDone = this.appService.animationFinished;
+
+    this.animationDone.pipe(first()).subscribe(
+      (resp) => {
+        this.education$ = this.educationService.loadEducationFromApi();
+      }
+    )
+
   }
 
+  ngOnDestroy(){
+    //this.animationDone.unsubscribe();
+  }
 }

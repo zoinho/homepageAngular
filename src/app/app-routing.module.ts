@@ -5,10 +5,10 @@ import {ExperienceComponent} from './experience/experience.component'
 
 const routes: Routes = [
   {path:'', redirectTo:'/', pathMatch:'full'},
-  {path:'education', component:EducationComponent},
-  {path:'experience', component: ExperienceComponent},
-  {path:'hobbies', redirectTo:'/'},
-  {path:'skills', redirectTo:'/'},
+  {path:'education', component:EducationComponent, data: {state: 'education'}},
+  {path:'experience', component: ExperienceComponent, data: {state: 'experience'}},
+  {path:'hobbies', redirectTo:'/', data: {state: 'hobbies'}},
+  {path:'skills', redirectTo:'/', data: {state: 'skills'}},
   {path:'*', redirectTo:'/'},
 ];
 
