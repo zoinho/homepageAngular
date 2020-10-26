@@ -11,6 +11,8 @@ import { NavigationComponent } from './navigation/navigation.component';
 
 import { ExperienceComponent } from './experience/experience.component';
 import { LoaderComponent } from './loader/loader.component';
+
+import {LoaderService } from './loader/loader.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +28,7 @@ import { LoaderComponent } from './loader/loader.component';
     BrowserAnimationsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [LoaderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

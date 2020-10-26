@@ -13,8 +13,8 @@ export class EducationService {
 
     constructor(private http: HttpClient, private appService: AppService){}
 
-    loadEducationFromApi(): Observable<Education[]> {
-      return this.http.get<Education[]>('http://localhost:3000/education').pipe( 
+    loadEducationFromApi(): Observable<Education> {
+      return this.http.get<Education>('http://localhost:3000/education').pipe( 
         map((response) => {
           return response;
         })

@@ -1,4 +1,5 @@
 export interface Education  {
+    icon: string,
     startDate: number,
     endDate: number,
     universityName: string,

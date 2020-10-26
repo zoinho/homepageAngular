@@ -4,6 +4,7 @@ import { Education } from './../interfaces';
 import {EducationService} from './education.service';
 import {first, tap} from 'rxjs/operators'
 import { AppService } from '../app.service';
+import { LoaderService } from '../loader/loader.service';
 @Component({
   selector: 'app-education',
   templateUrl: './education.component.html',
@@ -11,10 +12,10 @@ import { AppService } from '../app.service';
 })
 export class EducationComponent implements OnInit {
 
-  education$ : Observable<Education[]>;
+  education$ : Observable<Education>;
   animationDone = new Subject;
 
-  constructor(private educationService : EducationService, private appService: AppService) {
+  constructor(private educationService : EducationService, private appService: AppService, private loadingService:LoaderService) {
 
     
    }
@@ -24,7 +25,8 @@ export class EducationComponent implements OnInit {
 
     this.animationDone.pipe(first()).subscribe(
       (resp) => {
-        this.education$ = this.educationService.loadEducationFromApi();
+        this.education$ = this.loadingService.showLoaderUntilPageLoaded(this.educationService.loadEducationFromApi());
+        
       }
     )
 

@@ -1,6 +1,26 @@
 <div class="content-wrapper ">
     <article class="grid">
-        <p>{{(education$ | async) | json}}</p>
+        <section class="grid-content" *ngIf="(education$ | async) as education">
+            <div class="education__emblem">
+                <i class="fa" [ngClass]="'fa-'+education.icon"></i>
+            </div>
+            <h1>Education</h1>
+            <div class="education__dates">
+                    <div class="start-date">
+                        <span class="start-date__decorator">Start Date:</span>
+                        <span>{{education.startDate}}</span>
+                    </div>
+                    <div class="end-date">
+                        <span class="end-date__decorator">Start Date:</span>
+                        <span>{{education.endDate}}</span>
+                    </div>
+            </div>
+            <h3>{{education.universityName}}</h3>
+            <h3>Faculty: {{education.faculty}}</h3>
+            <h3>Degree: {{education.degree}}</h3>
+            
+        </section>
     </article>
 </div>
 <app-loader></app-loader>
+

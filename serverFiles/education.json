@@ -1,5 +1,6 @@
-[
+
     {
+        "icon": "university",
         "startDate": 2009,
         "endDate": 2013,
         "universityName": "AGH University of Science and Technology in Cracow",
@@ -7,4 +8,3 @@
         "discipline": "Information Technology",
         "degree": "Master’s Degree  in Applied Computer Science"
     }
-]
