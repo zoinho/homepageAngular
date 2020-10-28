@@ -1,6 +1,6 @@
 
     {
-        "icon": "university",
+        "icon": ["university","book", "graduation-cap"],
         "startDate": 2009,
         "endDate": 2013,
         "universityName": "AGH University of Science and Technology in Cracow",

@@ -2,6 +2,7 @@
 @import "assets/styles/variables";
 @import "assets/styles/animations.scss";
 
+/* Main styles */
 * {
   box-sizing: border-box;
   padding: 0;
@@ -26,22 +27,34 @@ h5 {
   font-family: "Fjalla One", sans-serif;
 }
 h1 {
-  font-size: 2.4rem;
+  font-size: 5.2rem;
 }
 h2 {
-  font-size: 2rem;
+  font-size: 4.6rem;
 }
 h3 {
-  font-size: 1.8rem;
+  font-size: 3.8rem;
 }
 h4 {
-  font-size: 1.6rem;
+  font-size: 2.6rem;
 }
 h5 {
-  font-size: 1.4rem;
+  font-size: 2rem;
 }
 
-.content-wrapper {
+::-webkit-scrollbar {
+  width: 1rem;
+  height: 1rem;
+  &-thumb {
+    background: $brightGreen;
+  }
+  &-track {
+    background: rgba($brightGreen, 0.4);
+  }
+}
+
+/* Content styles */
+.content {
   display: grid;
   grid-template-columns: 10rem 1fr 10rem;
   grid-template-rows: 0.3fr 1fr 0.3fr;
@@ -53,14 +66,99 @@ h5 {
   background: $darkGreen;
   box-shadow: 6px 7px 17px 16px rgba(0, 0, 0, 0.2);
   border-left: 0.05rem solid rgba($dark, 0.05);
+  &__title {
+    color: $dark;
+  }
+}
 
-  .grid {
-    grid-column-start: 2;
-    grid-column-end: 4;
-    grid-row-start: 2;
-    grid-row-end: 3;
-    color: $light;
-    font-size: 1.6rem;
+button {
+  &:active,
+  &:focus {
+    outline: none;
+  }
+}
+
+.grid {
+  grid-column-start: 2;
+  grid-column-end: 4;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  color: $light;
+  font-size: 1.6rem;
+  &__content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: space-evenly;
+    &.fade-in {
+      animation: fade-in 500ms 0ms ease-in-out;
+      animation-fill-mode: forwards;
+    }
+  }
+}
+
+.emblem {
+  width: 15rem;
+  height: 15rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: $brightGreen;
+  border: 0.5rem solid $dark;
+  color: $dark;
+  font-size: 8rem;
+  overflow: hidden;
+  position: relative;
+  i {
+    &.first {
+      animation: rollOut 2s 2s ease-in-out;
+      animation-fill-mode: forwards;
+    }
+    &.second,
+    &.third {
+      position: absolute;
+      transform: translateX(250%);
+    }
+    &.second {
+      animation: rollInOut 5s 4s ease-in-out;
+      animation-fill-mode: forwards;
+    }
+    &.third {
+      animation: rollIn 1.5s 9s ease-in-out;
+      animation-fill-mode: forwards;
+    }
+  }
+}
+
+.education__dates,
+.experience__dates {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  font-size: 2.4rem;
+  font-weight: bold;
+  .dash {
+    width: 20%;
+    display: block;
+    border: 0.2rem dotted $brightGreen;
+    margin: 0 5%;
+  }
+  .start-date {
+    &__decorator {
+      font-weight: normal;
+      padding: 0 1rem;
+    }
+  }
+  .end-date {
+    &__decorator {
+      font-weight: normal;
+      padding: 0 1rem;
+    }
   }
 }
 

@@ -1,0 +1,48 @@
+@import "./../../../assets/styles/variables.scss";
+.experience-slider {
+  height: 30vh;
+  &__slider {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    scroll-snap-type: y mandatory;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+  }
+
+  &__up,
+  &__down {
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    background: $brightGreen;
+    border: 0.4rem solid $dark;
+    color: $dark;
+    font-size: 2rem;
+    color: $dark;
+    position: relative;
+    left: 50%;
+    i {
+      transform: translateY(0);
+    }
+  }
+  &__up {
+    margin-top: 3rem;
+    transform: translate3d(-50%, -1rem, 0);
+    &:hover {
+      i {
+        animation: bounceUp 1s 0ms ease-in-out;
+        animation-iteration-count: infinite;
+      }
+    }
+  }
+  &__down {
+    transform: translate3d(-50%, 1rem, 0);
+    &:hover {
+      i {
+        animation: bounceDown 1s 0ms ease-in-out;
+        animation-iteration-count: infinite;
+      }
+    }
+  }
+}

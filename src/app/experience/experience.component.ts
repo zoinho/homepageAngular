@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { first } from 'rxjs/operators';
+import { AppService } from '../app.service';
+import { ExperienceService } from './experience.service';
 
 @Component({
   selector: 'app-experience',
@@ -7,7 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExperienceComponent implements OnInit {
 
-  constructor() { }
+
+  constructor(private appService: AppService, public experienceService: ExperienceService) {
+    this.appService.animationFinished.pipe(first()).subscribe(
+      () => {
+        this.experienceService.loadExperienceFromApi();
+      }
+    )
+   }
 
   ngOnInit(): void {
   }

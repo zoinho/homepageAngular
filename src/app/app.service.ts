@@ -25,9 +25,6 @@ export class AppService {
         this.animationFinished.next(true);
     }
 
-    getValue() {
-        return this.subPageOpen.getValue();
-    }
 
     
 

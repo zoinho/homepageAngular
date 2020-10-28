@@ -1,17 +1,20 @@
-<div class="content-wrapper ">
+<div class="content ">
     <article class="grid">
-        <section class="grid-content" *ngIf="(education$ | async) as education">
-            <div class="education__emblem">
-                <i class="fa" [ngClass]="'fa-'+education.icon"></i>
+        <section class="grid__content" *ngIf="(educationService.education$ | async) as education" [ngClass]="{'fade-in' : (educationService.education$ | async)}">
+            <div class="emblem">
+                <i class="first fa" [ngClass]="'fa-'+education.icon[0]"></i>
+                <i class="second fa" [ngClass]="'fa-'+education.icon[1]"></i>
+                <i class="third fa" [ngClass]="'fa-'+education.icon[2]"></i>
             </div>
-            <h1>Education</h1>
+            <h1 class="content__title">Education</h1>
             <div class="education__dates">
                     <div class="start-date">
                         <span class="start-date__decorator">Start Date:</span>
                         <span>{{education.startDate}}</span>
                     </div>
+                    <div class="dash"></div>
                     <div class="end-date">
-                        <span class="end-date__decorator">Start Date:</span>
+                        <span class="end-date__decorator">End Date:</span>
                         <span>{{education.endDate}}</span>
                     </div>
             </div>

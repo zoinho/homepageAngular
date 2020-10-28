@@ -1,0 +1,32 @@
+<div class="content ">
+    <article class="grid">
+        <section class="grid__content" *ngIf="(skillsService.skills$ | async) as skills" [ngClass]="{'fade-in' : (skillsService.skills$ | async)}">
+            <div class="emblem">
+                <i class="first fa" [ngClass]="'fa-'+skills.icon[0]"></i>
+                <i class="second fa" [ngClass]="'fa-'+skills.icon[1]"></i>
+                <i class="third fa" [ngClass]="'fa-'+skills.icon[2]"></i>
+            </div>
+            <h1 class="content__title">Skills</h1>
+
+            <article class="skills" *ngFor="let skillRank of skills.skills | keyvalue : returnZero">
+                <h4 class="skills__header">{{skillRank.key}}</h4>
+                <section class="skills__items" [ngClass]="skillRank.key">
+                    <div class="skills__items__item" *ngFor="let skill of skillRank.value">
+                        <div class="skill__emblem">
+                            <i class="fa fa-star"></i>
+                        </div>
+                        <h5>{{skill.name}}</h5>
+                        <div class="skill__progress"></div>
+                    </div>
+                </section>
+
+            </article>
+
+        </section>
+    </article>
+</div>
+<app-loader></app-loader>
+
+<h2>
+</h2>
+ 

@@ -13,6 +13,9 @@ import { ExperienceComponent } from './experience/experience.component';
 import { LoaderComponent } from './loader/loader.component';
 
 import {LoaderService } from './loader/loader.service';
+import { ExperienceSliderComponent } from './experience/experience-slider/experience-slider.component';
+import { SlideComponent } from './experience/experience-slider/slide/slide.component';
+import { SkillsComponent } from './skills/skills.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,6 +24,9 @@ import {LoaderService } from './loader/loader.service';
     NavigationComponent,
     ExperienceComponent,
     LoaderComponent,
+    ExperienceSliderComponent,
+    SlideComponent,
+    SkillsComponent,
   ],
   imports: [
     BrowserModule,

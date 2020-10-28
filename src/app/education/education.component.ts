@@ -12,27 +12,25 @@ import { LoaderService } from '../loader/loader.service';
 })
 export class EducationComponent implements OnInit {
 
-  education$ : Observable<Education>;
   animationDone = new Subject;
 
-  constructor(private educationService : EducationService, private appService: AppService, private loadingService:LoaderService) {
-
-    
-   }
-  
-  ngOnInit(): void {
+  constructor(public educationService : EducationService, private appService: AppService, private loadingService:LoaderService) {
     this.animationDone = this.appService.animationFinished;
 
     this.animationDone.pipe(first()).subscribe(
       (resp) => {
-        this.education$ = this.loadingService.showLoaderUntilPageLoaded(this.educationService.loadEducationFromApi());
+        this.educationService.loadEducationFromApi();
         
       }
     )
+    
+   }
+  
+  ngOnInit(): void {
+ 
 
   }
 
   ngOnDestroy(){
-    //this.animationDone.unsubscribe();
   }
 }

@@ -1,0 +1,10 @@
+@mixin fillMixin($name, $percent) {
+  @keyframes #{$name} {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: $percent;
+    }
+  }
+}

@@ -1,5 +1,5 @@
 export interface Education  {
-    icon: string,
+    icon: string[],
     startDate: number,
     endDate: number,
     universityName: string,
@@ -9,8 +9,8 @@ export interface Education  {
 }
 
 export interface Experience {
-    startYear:2010,
-    endYear: 2012,
+    startYear:number,
+    endYear: number,
     companyName: string,
     position: string,
     responsibilities: string

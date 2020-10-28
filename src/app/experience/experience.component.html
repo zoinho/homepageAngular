@@ -1,5 +1,16 @@
-<div class="content-wrapper ">
+<div class="content ">
     <article class="grid">
-        <h1>Lorem ipsum from expierience</h1>
+        <section class="grid__content" *ngIf="(experienceService.experience$ | async) as experience" [ngClass]="{'fade-in' : (experienceService.experience$ | async)}">
+            <div class="emblem">
+                <i class="first fa" [ngClass]="'fa-'+experience.icon[0]"></i>
+                <i class="second fa" [ngClass]="'fa-'+experience.icon[1]"></i>
+                <i class="third fa" [ngClass]="'fa-'+experience.icon[2]"></i>
+            </div>
+            <h1 class="content__title">Experience</h1>
+           <app-experience-slider></app-experience-slider>
+            
+        </section>
     </article>
 </div>
+<app-loader></app-loader>
+

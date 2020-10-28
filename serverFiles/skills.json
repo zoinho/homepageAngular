@@ -1,112 +1,95 @@
 {
+"icon" : ["code", "mouse-pointer", "trophy"],    
+"skills":{
     "advanced": [
         {
             "iconUrl":"",
-            "name":"HTML5",
-            "level":7.5
+            "name":"HTML5"
 
         },
         {
             "iconUrl":"",
-            "name":"CSS3",
-            "level":7.5
+            "name":"CSS3"
 
         },
         {
             "iconUrl":"",
-            "name":"Angular 7+",
-            "level":7.5
+            "name":"Angular 7+"
 
         },
         {
             "iconUrl":"",
-            "name":"Java Script",
-            "level":7.5
+            "name":"Java Script"
 
         },
         {
             "iconUrl":"",
-            "name":"Responsive Web Design",
-            "level":7.5
+            "name":"Responsive Web Design"
 
         },
         {
             "iconUrl":"",
-            "name":"Adobe Photoshop",
-            "level":7.5
+            "name":"Adobe Photoshop"
 
         },
         {
             "iconUrl":"",
-            "name":"Adobe Illustrator",
-            "level":7.5
+            "name":"Adobe Illustrator"
 
         },
         {
             "iconUrl":"",
-            "name":"English Language",
-            "level":7.5
+            "name":"English Language"
 
         }
     ],
     "intermediate": [
         {
             "iconUrl":"",
-            "name":"Sass",
-            "level":5
+            "name":"Sass"
 
         },
         {
             "iconUrl":"",
-            "name":"Wordpress",
-            "level":5
+            "name":"Wordpress"
 
         },
         {
             "iconUrl":"",
-            "name":"Bootstrap",
-            "level":5
+            "name":"Bootstrap"
+        },
+        {
+            "iconUrl":"",
+            "name":"Github"
 
         },
         {
             "iconUrl":"",
-            "name":"Github",
-            "level":5
-
-        },
-        {
-            "iconUrl":"",
-            "name":"jQuery",
-            "level":5
+            "name":"jQuery"
 
         }
     ],
     "basic": [
         {
             "iconUrl":"",
-            "name":"React Js",
-            "level":2.5
+            "name":"React Js"
 
         }, {
             "iconUrl":"",
-            "name":"Jasmine",
-            "level":2.5
+            "name":"Jasmine"
 
         }, {
             "iconUrl":"",
-            "name":"User Experience Design",
-            "level":2.5
+            "name":"User Experience Design"
 
         }, {
             "iconUrl":"",
-            "name":"Linux Based Operating Systems",
-            "level":2.5
+            "name":"Linux Based Operating Systems"
 
         }, {
             "iconUrl":"",
-            "name":"Microsoft Office",
-            "level":2.5
+            "name":"Microsoft Office"
 
         }
     ]
-}   
+}}   
