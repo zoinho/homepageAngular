@@ -13,9 +13,12 @@ import { ExperienceComponent } from './experience/experience.component';
 import { LoaderComponent } from './loader/loader.component';
 
 import {LoaderService } from './loader/loader.service';
-import { ExperienceSliderComponent } from './experience/experience-slider/experience-slider.component';
-import { SlideComponent } from './experience/experience-slider/slide/slide.component';
+import { SliderComponent } from './slider/slider.component';
+import { ExperienceSlideComponent } from './slider/experience-slide/experience-slide.component';
 import { SkillsComponent } from './skills/skills.component';
+import { SkillsSlideComponent } from './slider/skills-slide/skills-slide.component';
+import { HobbiesComponent } from './hobbies/hobbies.component';
+import { ContactComponent } from './contact/contact.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,9 +27,12 @@ import { SkillsComponent } from './skills/skills.component';
     NavigationComponent,
     ExperienceComponent,
     LoaderComponent,
-    ExperienceSliderComponent,
-    SlideComponent,
+    SliderComponent,
+    ExperienceSlideComponent,
     SkillsComponent,
+    SkillsSlideComponent,
+    HobbiesComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,

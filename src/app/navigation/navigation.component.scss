@@ -16,11 +16,31 @@
   }
 }
 .navitem {
-  background: red;
   padding: 1rem 0;
   margin: 1rem 0;
   font-size: 1.6rem;
-  &.active {
-    background: green;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+  height: 10rem;
+  transform: scale(1);
+  transition: transform 150ms 0ms ease-in-out;
+  cursor: pointer;
+  &.active,
+  &:hover {
+    transform: scale(1.15);
+  }
+  &__title {
+    color: $dark;
+  }
+
+  .fa {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+  }
+  h5 {
+    color: $dark;
   }
 }

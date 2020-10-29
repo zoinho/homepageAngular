@@ -1,0 +1,28 @@
+@import "../../assets/styles/variables.scss";
+
+.hobbies {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+.hobby {
+  text-align: center;
+  margin: 3rem 0;
+  &__emblem {
+    width: 8rem;
+    height: 8rem;
+    margin: 0 auto;
+    border: 3px solid $dark;
+    background: $brightGreen;
+    border-radius: 50%;
+    font-size: 3.5rem;
+    color: $dark;
+    margin-bottom: 1rem;
+    i {
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+}

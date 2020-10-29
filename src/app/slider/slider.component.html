@@ -1,0 +1,19 @@
+<button class="slider__up" (click)="slideUp()">
+    <i class="fa fa-chevron-up"></i>
+</button>
+<section class="slider" >
+   
+    <article class="slider__slider" #slider>
+        <ng-container *ngIf="type == 'experience'; else skills">
+            <app-experience-slide [experience] = exp *ngFor="let exp of data.experience"></app-experience-slide>
+        </ng-container>
+        <ng-template #skills>
+            <app-skills-slide [skill] = skillRank *ngFor="let skillRank of data.skills | keyvalue : returnZero"></app-skills-slide>
+        </ng-template>
+       
+    </article>
+    
+</section>
+<button class="slider__down" (click)="slideDown()">
+    <i class="fa fa-chevron-down"></i>
+</button>

@@ -1,0 +1,49 @@
+<div class="content ">
+    <article class="grid">
+        <section class="grid__content" *ngIf="(this.appService.shouldLoadContent | async)" [ngClass]="{'fade-in' : (this.appService.shouldLoadContent | async)}"> 
+            <div class="emblem">
+                <i class="first fa fa-id-card"></i>
+                <i class="second fa fa-mobile-alt"></i>
+                <i class="third fa fa-feather-alt"></i>
+            </div>
+            <h1 class="content__title">Contact</h1>
+            <h3>If you would like to contact me - don't hesitate, let's talk!</h3>
+            <article class="contact">
+                <ul class="contact__list">
+                    <li class="contact__item">
+                        <a class="contact__link" href="https://www.linkedin.com/in/lukasz-milik/">
+                            <div class="contact__emblem">
+                                <i class="fab fa-linkedin"></i>
+                            </div>
+                            <h4>Linkedin</h4>
+                        </a>
+                    </li>
+                    <li class="contact__item">
+                        <a class="contact__link" href="skype:lmilikpl?chat">
+                            <div class="contact__emblem">
+                                <i class="fab fa-skype"></i>
+                            </div>
+                            <h4>Skype</h4>
+                        </a>
+                    </li>
+                    <li class="contact__item">
+                        <a class="contact__link" href="tel:+48531889789">
+                            <div class="contact__emblem">
+                                <i class="fa fa-phone"></i>
+                            </div>
+                            <h4>Phone</h4>
+                        </a>
+                    </li>
+                    <li class="contact__item">
+                        <a class="contact__link" href="mailto:lmilik89@gmail.com">
+                            <div class="contact__emblem">
+                                <i class="fa fa-envelope"></i>
+                            </div>
+                            <h4>E-mail</h4>
+                        </a>
+                    </li>
+                </ul>
+            </article>
+        </section>
+    </article>
+</div>

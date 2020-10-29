@@ -10,6 +10,7 @@ export class AppService {
     constructor(){}
     private subPageOpen = new BehaviorSubject(false)
     public animationFinished = new Subject;
+    public shouldLoadContent = new BehaviorSubject<boolean>(false);
 
     blurBackground$ : Observable<boolean> = this.subPageOpen.asObservable();
     

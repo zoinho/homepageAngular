@@ -1,0 +1,13 @@
+<article class="skills">
+    <h3 class="skills__header">{{skill.key}}</h3>
+    <section class="skills__items" [ngClass]="skill.key">
+        <div class="skills__items__item" *ngFor="let skillItem of skill.value">
+            <div class="skill__emblem">
+                <i class="fa fa-star"></i>
+            </div>
+            <h5>{{skillItem.name}}</h5>
+            <div class="skill__progress"></div>
+        </div>
+    </section>
+
+</article>

@@ -77,10 +77,14 @@ button {
     outline: none;
   }
 }
+a {
+  color: $brightGreen;
+  text-decoration: none;
+}
 
 .grid {
   grid-column-start: 2;
-  grid-column-end: 4;
+  grid-column-end: 3;
   grid-row-start: 2;
   grid-row-end: 3;
   color: $light;

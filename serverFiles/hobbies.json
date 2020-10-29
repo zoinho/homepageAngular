@@ -1,22 +1,23 @@
-{"hobbies": [
+{   "icon": ["dice-six","award","bolt"],
+    "hobbies": [
     {
-        "iconUrl": "",
+        "icon": "dumbbell",
         "description": "Always up to burn some calories"
     },
     {
-        "iconUrl": "",
+        "icon": "pizza-slice",
         "description": "Top Chef in my kitchen!"
     },
     {
-        "iconUrl": "",
+        "icon": "gamepad",
         "description": "Never say no to video games"
     },
     {
-        "iconUrl": "",
+        "icon": "film",
         "description": "Movie nights are my gig"
     },
     {
-        "iconUrl": "",
+        "icon": "music",
         "description": "Some music - always"
     }
 ]

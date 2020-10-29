@@ -9,7 +9,7 @@ import { AppService } from '../app.service';
   styleUrls: ['./navigation.component.scss']
 })
 export class NavigationComponent implements OnInit {
-
+  routeUrl:string = '';
   constructor(private appService: AppService, private router: Router) {
 
 
@@ -23,8 +23,10 @@ export class NavigationComponent implements OnInit {
   toggleLink(route) {
     if(this.router.url == route) {
       this.router.navigate(['/'])
+      this.routeUrl = '';
     } else {
       this.router.navigate([route])
+      this.routeUrl = route;
     }
   }
   ngOnDestroy() {

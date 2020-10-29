@@ -1,15 +1,16 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { ExperienceService } from '../experience.service';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 
 @Component({
-  selector: 'app-experience-slider',
-  templateUrl: './experience-slider.component.html',
-  styleUrls: ['./experience-slider.component.scss']
+  selector: 'app-slider',
+  templateUrl: './slider.component.html',
+  styleUrls: ['./slider.component.scss']
 })
-export class ExperienceSliderComponent implements OnInit {
+export class SliderComponent implements OnInit {
   @ViewChild('slider') slider : ElementRef;
+  @Input() type: string;
+  @Input() data:any;
   sliderScrollTop: number = 0;
-  constructor(public experienceService: ExperienceService) { }
+  constructor() { }
 
   ngOnInit(): void {
 
@@ -27,5 +28,8 @@ export class ExperienceSliderComponent implements OnInit {
     this.sliderScrollTop = currentScroll + document.documentElement.clientHeight *0.3 // 30vh
     this.slider.nativeElement.scrollTop = this.sliderScrollTop;
     console.log(this.sliderScrollTop)
+  }
+  returnZero() {
+    return 0;
   }
 }

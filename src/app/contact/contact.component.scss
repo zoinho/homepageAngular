@@ -1,0 +1,44 @@
+@import "../../assets/styles/variables.scss";
+@import "./../../assets/styles/animations.scss";
+
+.contact {
+  width: 100%;
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-content: center;
+  }
+  &__item {
+    list-style: none;
+  }
+  &__link {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    &:hover {
+      .contact__emblem {
+        animation: rotate3d 1s 0ms ease-in-out;
+        animation-fill-mode: forwards;
+        transform-style: preserve-3d;
+      }
+    }
+  }
+  &__emblem {
+    width: 7rem;
+    height: 7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: $brightGreen;
+    border: 0.3rem solid $dark;
+    color: $dark;
+    font-size: 3.5rem;
+    overflow: hidden;
+    position: relative;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+  }
+}

@@ -12,12 +12,10 @@ import { LoaderService } from '../loader/loader.service';
 })
 export class EducationComponent implements OnInit {
 
-  animationDone = new Subject;
 
   constructor(public educationService : EducationService, private appService: AppService, private loadingService:LoaderService) {
-    this.animationDone = this.appService.animationFinished;
 
-    this.animationDone.pipe(first()).subscribe(
+    this.appService.animationFinished.pipe(first()).subscribe(
       (resp) => {
         this.educationService.loadEducationFromApi();
         
@@ -31,6 +29,6 @@ export class EducationComponent implements OnInit {
 
   }
 
-  ngOnDestroy(){
+  ngOnDestroy() {
   }
 }

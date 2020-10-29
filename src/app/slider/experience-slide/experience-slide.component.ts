@@ -2,11 +2,11 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Experience } from 'src/app/interfaces';
 
 @Component({
-  selector: 'app-slide',
-  templateUrl: './slide.component.html',
-  styleUrls: ['./slide.component.scss']
+  selector: 'app-experience-slide',
+  templateUrl: './experience-slide.component.html',
+  styleUrls: ['./experience-slide.component.scss']
 })
-export class SlideComponent implements OnInit {
+export class ExperienceSlideComponent implements OnInit {
 
   @Input() experience:Experience
   constructor() { }

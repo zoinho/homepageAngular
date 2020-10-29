@@ -118,3 +118,12 @@
     transform: translateY(0rem);
   }
 }
+
+@keyframes rotate3d {
+  0% {
+    transform: rotate3d(0, 1, 0, 0deg);
+  }
+  100% {
+    transform: rotate3d(0, 1, 0, 720deg);
+  }
+}
