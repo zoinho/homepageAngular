@@ -24,14 +24,12 @@
     font-size: 2rem;
     color: $dark;
     position: relative;
-    left: 50%;
     i {
       transform: translateY(0);
     }
   }
   &__up {
     margin-top: 3rem;
-    transform: translate3d(-50%, -1rem, 0);
     &:hover {
       i {
         animation: bounceUp 1s 0ms ease-in-out;
@@ -40,12 +38,14 @@
     }
   }
   &__down {
-    transform: translate3d(-50%, 1rem, 0);
     &:hover {
       i {
         animation: bounceDown 1s 0ms ease-in-out;
         animation-iteration-count: infinite;
       }
     }
+  }
+  @media screen and (max-width: 760px) {
+    height: 50vh;
   }
 }

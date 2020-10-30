@@ -10,6 +10,7 @@ import { AppService } from '../app.service';
 })
 export class NavigationComponent implements OnInit {
   routeUrl:string = '';
+  mobileMenuOpen:boolean = false;
   constructor(private appService: AppService, private router: Router) {
 
 
@@ -21,6 +22,7 @@ export class NavigationComponent implements OnInit {
     this.state$ = this.appService.blurBackground$;
   }
   toggleLink(route) {
+    this.mobileMenuOpen = false;
     if(this.router.url == route) {
       this.router.navigate(['/'])
       this.routeUrl = '';
@@ -28,6 +30,11 @@ export class NavigationComponent implements OnInit {
       this.router.navigate([route])
       this.routeUrl = route;
     }
+  }
+
+  toggleMenu() {
+    console.log('toggle');
+    this.mobileMenuOpen = !this.mobileMenuOpen;
   }
   ngOnDestroy() {
   }

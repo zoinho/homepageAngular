@@ -6,11 +6,16 @@
   height: 15rem;
   position: fixed;
   transform: translateZ(0);
-  fill: rgba($darkGreen, 0.3);
-  stroke-width: 0.2px;
-  stroke: $darkGreen;
-  overflow: visible;
+  backface-visibility: hidden;
   transform-style: preserve-3d;
+  perspective: 1000;
+  &__triangle {
+    width: 0;
+    height: 0;
+    border-left: 5rem solid transparent;
+    border-right: 5rem solid transparent;
+    border-bottom: 10rem solid $darkGreen;
+  }
   &__glass {
     position: absolute;
     top: 0;
@@ -19,15 +24,52 @@
     height: 100%;
     z-index: 5;
   }
+  svg {
+    fill: rgba($darkGreen, 0.3);
+    stroke-width: 0.2px;
+    stroke: $darkGreen;
+    overflow: visible;
+  }
 
   &:nth-child(odd) {
     animation-name: rotateClockwise;
+    transform-style: preserve-3d;
   }
   &:nth-child(even) {
     animation-name: rotateAntiClockwise;
+    transform-style: preserve-3d;
   }
-  polygon {
-    transform-origin: center center;
+}
+.static {
+  position: relative;
+  z-index: 1;
+  .polygon {
+    &:nth-child(odd) {
+      animation: none;
+    }
+    &:nth-child(even) {
+      animation: none;
+    }
+    .polygon__triangle {
+      border-bottom: 10rem solid rgba($brightGreen, 0.75);
+    }
+  }
+  @for $i from 0 through 7 {
+    .polygon-#{$i} {
+      opacity: 0.2;
+    }
+  }
+
+  @for $i from 8 through 12 {
+    .polygon-#{$i} {
+      opacity: 0.45;
+    }
+  }
+
+  @for $i from 13 through 20 {
+    .polygon-#{$i} {
+      opacity: 0.65;
+    }
   }
 }
 
@@ -68,24 +110,34 @@
 }
 
 @media screen and (max-width: 1024px) {
-  @for $i from 0 through 10 {
+  @for $i from 0 through 4 {
     .polygon-#{$i} {
+      filter: none;
       opacity: 0.25;
-      filter: blur(10px);
+    }
+  }
+  @for $i from 5 through 7 {
+    .polygon-#{$i} {
+      filter: none;
+      opacity: 0.5;
+    }
+  }
+  @for $i from 8 through 10 {
+    .polygon-#{$i} {
+      filter: none;
+      opacity: 0.25;
     }
   }
 
   @for $i from 11 through 18 {
     .polygon-#{$i} {
-      opacity: 0.55;
-      filter: blur(5px);
+      display: none;
     }
   }
 
   @for $i from 19 through 25 {
     .polygon-#{$i} {
-      opacity: 1;
-      filter: blur(0px);
+      display: none;
     }
   }
   @for $i from 26 through 70 {

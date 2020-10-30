@@ -1,11 +1,9 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AppService } from '../app.service';
 
 interface Polygon {
-  startPoint: Coordinate;
-  middlePoint: Coordinate;
-  endPoint: Coordinate;
+ 
   height?: number;
   combinedPoints?: string;
   positionX:number;
@@ -13,7 +11,6 @@ interface Polygon {
   skewX: number;
   skewY: number;
   scale: number;
-  layer: string;
 }
 interface Coordinate {
   x: number;
@@ -28,7 +25,9 @@ interface Coordinate {
 
 
 export class PolygonGeneratorComponent implements OnInit {
-  polygonCount = 40;
+  @Input() polygonCount:number;
+  @Input() static:boolean;
+
   polygonArray: Polygon[] = [];
   windowWidth = window.innerWidth;
   windowHeight = window.innerHeight;
@@ -52,41 +51,18 @@ export class PolygonGeneratorComponent implements OnInit {
 
   ngOnInit(): void {
     for(let i=0; i< this.polygonCount; i++) {
-      this.polygonArray.push(this.createRandomPolygon(this.windowWidth/((Math.random() * 3) + 7), this.windowHeight/((Math.random() * 3) + 7), i))
+      this.polygonArray.push(this.createRandomPolygon())
     }
-    this.polygonArray.forEach( x => {
-      x.combinedPoints = ''+x.startPoint.x+','+x.startPoint.y+' '+x.middlePoint.x+','+x.middlePoint.y+' '+x.endPoint.x+','+x.endPoint.y
-    })
+
     this.appService.blurBackgroundOff();
   }
-  createRandomPolygon(maxWidth, maxHeight, i):Polygon {
-    let layer: string;
-    if(i<= 22) {
-      layer = 'bottom';
-    }else if (i<=30) {
-      layer = 'middle';
-    } else {
-      layer = 'top'
-    }
+  createRandomPolygon():Polygon {
     return {
-      startPoint: {
-        x: maxWidth,
-        y: maxWidth
-      },
-      middlePoint: {
-        x: maxHeight,
-        y: maxHeight
-      },
-      endPoint: {
-        x: 2*maxHeight-maxWidth,
-        y: maxWidth
-      },
       positionX: Math.floor(Math.random() * (this.windowWidth/1.025)),
       positionY: Math.floor(Math.random() * (this.windowHeight/1.025)),
-      skewX: Math.random() * 17,
-      skewY: Math.random() * 17,
+      skewX: Math.random() * 30,
+      skewY: Math.random() * 30,
       scale: 0.5 + 1.5 *Math.random(),
-      layer: layer
       
     }
 

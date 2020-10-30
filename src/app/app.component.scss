@@ -16,9 +16,21 @@
     text-transform: uppercase;
     font-weight: bold;
     position: relative;
+    @media screen and (max-width: 1024px) {
+      font-size: 10vw;
+    }
+    @media screen and (max-width: 760px) {
+      font-size: 15vw;
+    }
   }
   &__subheader {
     font-size: 5vw;
     position: relative;
+    @media screen and (max-width: 1024px) {
+      font-size: 7vw;
+    }
+    @media screen and (max-width: 760px) {
+      font-size: 10vw;
+    }
   }
 }

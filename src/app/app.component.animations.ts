@@ -10,7 +10,7 @@ trigger('routeAnimations',[
             right: 0,
             width: 'calc(100%)',
             height: '100%',
-            transform: 'translateX(100%)'
+            transform: 'translate3d(100%, 0, 0)'
         }),  
     ], {optional: true}),
     query(':leave', [
@@ -20,21 +20,21 @@ trigger('routeAnimations',[
           right: 0,
           width: 'calc(100%)',
           height: '100%',
-          transform: 'translateX(0%)'
+          transform: 'translate3d(0%, 0, 0)'
       }),  
   ], {optional: true}),]),
      
       query(':leave', [
         animate('600ms cubic-bezier(0.27, 0.06, 0.25, 1)', 
         style({
-            transform: 'translateX(100%)'
+            transform: 'translate3d(100%,0 ,0)'
 
         }))
     ], {optional: true}),
         query(':enter', [
             animate('1200ms cubic-bezier(0.27, 0.06, 0.25, 1)', 
             style({
-              transform: 'translateX(0%)'
+              transform: 'translate3d(0%, 0, 0)'
           }))
         ], {optional: true}),
         

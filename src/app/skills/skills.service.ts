@@ -16,7 +16,7 @@ export class SkillsService {
     constructor(private http:HttpClient, private loaderService: LoaderService){}
 
     loadSkillsFromApi(){
-        const data$ =  this.http.get('http://localhost:3000/skills').pipe(
+        const data$ =  this.http.get('http://192.168.0.38:3000/skills').pipe(
             map(resp => resp),
             tap( (resp) => {
                 this.skillsData.next(resp);

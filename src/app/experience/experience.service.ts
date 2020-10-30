@@ -16,7 +16,7 @@ export class ExperienceService {
     constructor(private http: HttpClient, private loaderService: LoaderService){}
 
     loadExperienceFromApi() {
-        const data$ = this.http.get('http://localhost:3000/experience').pipe(
+        const data$ = this.http.get('http://192.168.0.38:3000/experience').pipe(
             map(response => response),
             tap(response => this.experienceSubject.next(response))
         )

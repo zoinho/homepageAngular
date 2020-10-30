@@ -3,91 +3,87 @@
 "skills":{
     "advanced": [
         {
-            "iconUrl":"",
+            "icon":"html5",
             "name":"HTML5"
 
         },
         {
-            "iconUrl":"",
+            "icon":"css",
             "name":"CSS3"
 
         },
         {
-            "iconUrl":"",
+            "icon":"angular",
             "name":"Angular 7+"
 
         },
         {
-            "iconUrl":"",
+            "icon":"js",
             "name":"Java Script"
 
         },
         {
-            "iconUrl":"",
+            "icon":"adaptive",
             "name":"Responsive Web Design"
 
         },
         {
-            "iconUrl":"",
+            "icon":"photoshop",
             "name":"Adobe Photoshop"
 
         },
         {
-            "iconUrl":"",
+            "icon":"illustrator",
             "name":"Adobe Illustrator"
 
         },
         {
-            "iconUrl":"",
+            "icon":"uk",
             "name":"English Language"
 
         }
     ],
     "intermediate": [
         {
-            "iconUrl":"",
+            "icon":"sass",
             "name":"Sass"
 
         },
         {
-            "iconUrl":"",
+            "icon":"wordpress",
             "name":"Wordpress"
 
         },
         {
-            "iconUrl":"",
+            "icon":"bootstrap",
             "name":"Bootstrap"
         },
         {
-            "iconUrl":"",
+            "icon":"github",
             "name":"Github"
 
         },
         {
-            "iconUrl":"",
+            "icon":"jquery",
             "name":"jQuery"
 
         }
     ],
     "basic": [
         {
-            "iconUrl":"",
+            "icon":"react",
             "name":"React Js"
 
         }, {
-            "iconUrl":"",
-            "name":"Jasmine"
-
-        }, {
-            "iconUrl":"",
+            "icon":"ux",
             "name":"User Experience Design"
 
         }, {
-            "iconUrl":"",
+            "icon":"linux",
             "name":"Linux Based Operating Systems"
 
         }, {
-            "iconUrl":"",
+            "icon":"office",
             "name":"Microsoft Office"
 
         }

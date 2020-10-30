@@ -17,7 +17,7 @@ export class EducationService {
     constructor(private http: HttpClient, private appService: AppService, private loadingService: LoaderService){}
 
     loadEducationFromApi(){
-      const data$ = this.http.get('http://localhost:3000/education').pipe( 
+      const data$ = this.http.get('http://192.168.0.38:3000/education').pipe( 
         map((response) => {
           return response;
         }),
