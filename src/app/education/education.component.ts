@@ -28,7 +28,7 @@ export class EducationComponent implements OnInit {
  
 
   }
-
-  ngOnDestroy() {
+  shake() {
+    navigator.vibrate(350);
   }
 }

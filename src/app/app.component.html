@@ -1,6 +1,6 @@
 <app-polygon-generator [polygonCount]="40"></app-polygon-generator>
 <app-navigation></app-navigation>
-<section class="welcome" [ngClass]="{blur: appService.blurBackground$ | async}">
+<section class="welcome" [class.blur]="appService.blurBackground$ | async">
     <h1 [@slideFromRight] class="welcome__header">Łukasz Milik</h1>
     <h2 [@slideFromLeft] class="welcome__subheader">Frontend Develeoper</h2>
 </section>

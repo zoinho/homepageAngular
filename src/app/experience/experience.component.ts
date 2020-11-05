@@ -21,5 +21,8 @@ export class ExperienceComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  shake() {
+    navigator.vibrate(350);
+  }
 
 }

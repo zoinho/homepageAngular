@@ -18,7 +18,7 @@ export class HobbiesService {
     }
 
     loadHobbiesFromApi() {
-        const data$ = this.http.get('http://192.168.0.38:3000/hobbies').pipe(
+        const data$ = this.http.get('http://localhost:3000/hobbies').pipe(
             map(response => response),
             tap(response => this.hobbiesData.next(response))
         )

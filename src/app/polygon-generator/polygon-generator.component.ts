@@ -11,6 +11,7 @@ interface Polygon {
   skewX: number;
   skewY: number;
   scale: number;
+  layer: string;
 }
 interface Coordinate {
   x: number;
@@ -27,10 +28,16 @@ interface Coordinate {
 export class PolygonGeneratorComponent implements OnInit {
   @Input() polygonCount:number;
   @Input() static:boolean;
+  
 
   polygonArray: Polygon[] = [];
   windowWidth = window.innerWidth;
   windowHeight = window.innerHeight;
+  
+  @HostListener('deviceorientation', ['$event'])
+  onOrientationChange(event) {
+    alert(event);
+  }
   @HostListener('mousemove', ['$event'])
   onMouseMove(event) {
     const topLayer = document.querySelectorAll('.top');
@@ -51,19 +58,27 @@ export class PolygonGeneratorComponent implements OnInit {
 
   ngOnInit(): void {
     for(let i=0; i< this.polygonCount; i++) {
-      this.polygonArray.push(this.createRandomPolygon())
+      this.polygonArray.push(this.createRandomPolygon(i))
     }
 
-    this.appService.blurBackgroundOff();
+     if(!this.static) this.appService.blurBackgroundOff();
   }
-  createRandomPolygon():Polygon {
+  createRandomPolygon(index):Polygon {
+    let layer: string;
+    if(index<= 22) {
+      layer = 'bottom';
+    }else if (index<=30) {
+      layer = 'middle';
+    } else {
+      layer = 'top'
+    }
     return {
       positionX: Math.floor(Math.random() * (this.windowWidth/1.025)),
       positionY: Math.floor(Math.random() * (this.windowHeight/1.025)),
       skewX: Math.random() * 30,
       skewY: Math.random() * 30,
       scale: 0.5 + 1.5 *Math.random(),
-      
+      layer: layer
     }
 
   }

@@ -15,17 +15,7 @@ import { AppService } from './app.service';
 })
 export class AppComponent {
 
-  constructor(private router: Router, public appService: AppService){
-    this.router.events.pipe(
-      filter(event => event instanceof NavigationEnd)
-    ).subscribe(event => {
-      if(event['urlAfterRedirects'] == '/') {
-        this.appService.blurBackgroundOff();
-      } else {
-        this.appService.blurBackgroundOn();
-      }
-    })
-  }
+  constructor(private router: Router, public appService: AppService){ }
 
 
   slideAnimationFinished(event) { 

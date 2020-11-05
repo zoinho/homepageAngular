@@ -1,9 +1,11 @@
-    <span [ngClass]="{blur: appService.blurBackground$ | async, 'static': static}" style="transform: translateZ(0);">
+    <span [class.blur]="(appService.blurBackground$ | async) && !static" [class.static]="static" style="transform: translateZ(0)">
         <div *ngFor="let polygon of polygonArray; let i = index" class="polygon" 
         [ngClass]="'polygon-'+i" 
         [style.top.px]="polygon.positionY" 
         [style.left.px]='polygon.positionX' >
-            <div class="polygon__triangle" [style.transform]="'translate(-33%, -67%) skew('+ polygon.skewX +'deg,'+ polygon.skewY +'deg) scale('+ polygon.scale +')'"></div>
+        <div [ngClass]="polygon.layer">
+            <div class="polygon__triangle"  [style.transform]="'translate(-33%, -67%) skew('+ polygon.skewX +'deg,'+ polygon.skewY +'deg) scale('+ polygon.scale +')'"></div>
+        </div>
        
         </div>
        

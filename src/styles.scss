@@ -135,6 +135,9 @@ a {
   font-size: 8rem;
   overflow: hidden;
   position: relative;
+  &:hover {
+    animation: shake 450ms 0ms ease-in-out;
+  }
   i {
     &.first {
       animation: rollOut 2s 2s ease-in-out;

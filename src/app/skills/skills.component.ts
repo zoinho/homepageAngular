@@ -25,6 +25,9 @@ export class SkillsComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  shake() {
+    navigator.vibrate(350);
+  }
   returnZero() {
     return 0;
   }

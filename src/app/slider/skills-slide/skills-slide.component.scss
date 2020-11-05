@@ -20,16 +20,15 @@
   &__header {
     text-transform: capitalize;
     margin: 1rem 0;
+    width: 100%;
   }
   &__items {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-content: center;
-    padding: 1.5rem 0;
     border-top: 0.1rem solid $brightGreen;
-    margin: 1rem 0;
-    height: calc(100% - 3.2rem);
+    height: 100%;
     &.advanced {
       .skill__progress {
         &:before {

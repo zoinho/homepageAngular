@@ -16,24 +16,26 @@ export class NavigationComponent implements OnInit {
 
    }
   subscription: Subscription;
-  state$: Observable<boolean>
 
   ngOnInit(): void {
-    this.state$ = this.appService.blurBackground$;
   }
   toggleLink(route) {
     this.mobileMenuOpen = false;
     if(this.router.url == route) {
       this.router.navigate(['/'])
       this.routeUrl = '';
+      this.appService.blurBackgroundOff();
+      navigator.vibrate(50);
+
     } else {
       this.router.navigate([route])
       this.routeUrl = route;
+      this.appService.blurBackgroundOn();
+      navigator.vibrate(50);
     }
   }
 
   toggleMenu() {
-    console.log('toggle');
     this.mobileMenuOpen = !this.mobileMenuOpen;
   }
   ngOnDestroy() {

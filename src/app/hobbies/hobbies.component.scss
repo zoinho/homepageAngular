@@ -5,6 +5,7 @@
   align-items: center;
   justify-content: space-evenly;
   flex-wrap: wrap;
+  align-items: stretch;
 }
 .hobby {
   text-align: center;
@@ -24,5 +25,8 @@
       top: 50%;
       transform: translateY(-50%);
     }
+  }
+  @media screen and (max-width: 1024px) {
+    width: 50%;
   }
 }

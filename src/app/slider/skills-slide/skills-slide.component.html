@@ -1,6 +1,7 @@
 <article class="skills">
-    <h4 class="skills__header">{{skill.key}}</h4>
     <section class="skills__items" [ngClass]="skill.key">
+        <h4 class="skills__header">{{skill.key}}</h4>
+
         <div class="skills__items__item" *ngFor="let skillItem of skill.value">
             <div class="skill__emblem">
                 <i [ngClass]="'skill-' + skillItem.icon"></i>

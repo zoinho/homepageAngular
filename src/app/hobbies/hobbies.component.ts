@@ -25,6 +25,9 @@ export class HobbiesComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  shake() {
+    navigator.vibrate(350);
+  }
   
 
 }

@@ -1,7 +1,7 @@
 <div class="content ">
     <article class="grid">
         <section class="grid__content" *ngIf="(skillsService.skills$ | async) as skills" [ngClass]="{'fade-in' : (skillsService.skills$ | async)}">
-            <div class="emblem">
+            <div class="emblem" (click)="shake()">
                 <i class="first fa" [ngClass]="'fa-'+skills.icon[0]"></i>
                 <i class="second fa" [ngClass]="'fa-'+skills.icon[1]"></i>
                 <i class="third fa" [ngClass]="'fa-'+skills.icon[2]"></i>
@@ -12,6 +12,8 @@
            
         </section>
     </article>
+    <app-polygon-generator [polygonCount]="10" [static]="true"></app-polygon-generator>
+
 </div>
 <app-loader></app-loader>
 
