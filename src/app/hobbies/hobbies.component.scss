@@ -25,6 +25,16 @@
       top: 50%;
       transform: translateY(-50%);
     }
+    @media screen and (max-width: 760px) {
+      width: 5rem;
+      height: 5rem;
+      font-size: 2rem;
+    }
+  }
+  &__description {
+    @media screen and (max-width: 1024px) {
+      font-size: 2rem;
+    }
   }
   @media screen and (max-width: 1024px) {
     width: 50%;
