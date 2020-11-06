@@ -1,3 +1,3 @@
-let urlPath = "http://milik-server.baster.usermd.net"
+let urlPath = "https://milik-server.baster.usermd.net"
 
 export default urlPath
