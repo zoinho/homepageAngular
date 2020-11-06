@@ -20,10 +20,8 @@ app.listen(3000, ()=> {
 app.get('/education', (req, res) => {
     fs.readFile('serverFiles/education.json', (err, resp) => {
         let parsedResp = JSON.parse(resp);
-        setTimeout(()=> {
             res.send(parsedResp);
             console.log('Education response sent')
-        }, 1000)
     })
 })
 
@@ -47,24 +45,18 @@ app.put('/update-education', (req, res) => {
 app.get('/skills', (req, res) => {
     fs.readFile('serverFiles/skills.json', (err, resp) => {
         let parsedResp = JSON.parse(resp);
-        setTimeout(()=> {
             res.send(parsedResp);
-        }, 1000)
     })
 })
 app.get('/hobbies', (req, res) => {
     fs.readFile('serverFiles/hobbies.json', (err, resp) => {
         let parsedResp = JSON.parse(resp);
-        setTimeout(()=> {
             res.send(parsedResp);
-        }, 1000)
     })
 })
 app.get('/experience', (req, res) => {
     fs.readFile('serverFiles/experience.json', (err, resp) => {
         let parsedResp = JSON.parse(resp);
-        setTimeout(()=> {
             res.send(parsedResp);
-        }, 1000)
     })
 })
