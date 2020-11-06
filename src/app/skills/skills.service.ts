@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
+import urlPath from '../app.config';
 import { Skills } from '../interfaces';
 import { LoaderService } from '../loader/loader.service';
 
@@ -16,7 +17,7 @@ export class SkillsService {
     constructor(private http:HttpClient, private loaderService: LoaderService){}
 
     loadSkillsFromApi(){
-        const data$ =  this.http.get('http://localhost:3000/skills').pipe(
+        const data$ =  this.http.get(`${urlPath}/skills`).pipe(
             map(resp => resp),
             tap( (resp) => {
                 this.skillsData.next(resp);

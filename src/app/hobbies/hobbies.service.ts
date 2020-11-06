@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
+import urlPath from '../app.config';
 import { LoaderService } from '../loader/loader.service';
 
 @Injectable({
@@ -18,7 +19,7 @@ export class HobbiesService {
     }
 
     loadHobbiesFromApi() {
-        const data$ = this.http.get('http://localhost:3000/hobbies').pipe(
+        const data$ = this.http.get(`${urlPath}/hobbies`).pipe(
             map(response => response),
             tap(response => this.hobbiesData.next(response))
         )

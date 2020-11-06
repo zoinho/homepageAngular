@@ -20,14 +20,12 @@ export class SliderComponent implements OnInit {
     
     this.sliderScrollTop = currentScroll - document.documentElement.clientHeight *0.3 // 30vh
     this.slider.nativeElement.scrollTop = this.sliderScrollTop;
-    console.log(this.sliderScrollTop)
   }
   slideDown(){
     let currentScroll = this.slider.nativeElement.scrollTop;
     
     this.sliderScrollTop = currentScroll + document.documentElement.clientHeight *0.3 // 30vh
     this.slider.nativeElement.scrollTop = this.sliderScrollTop;
-    console.log(this.sliderScrollTop)
   }
   returnZero() {
     return 0;

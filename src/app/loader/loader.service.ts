@@ -17,7 +17,6 @@ export class LoaderService{
 
         return of(null).pipe(
            tap( () => {
-               console.log('Emit true')
                this.loaderOn.next(true);
            }),
            concatMap(() => content),

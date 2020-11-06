@@ -5,6 +5,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import {catchError, first, map, shareReplay, tap} from 'rxjs/operators'
 import { AppService } from '../app.service';
 import { LoaderService } from '../loader/loader.service';
+import urlPath from '../app.config';
 @Injectable({
   providedIn: 'root',
 }) 
@@ -17,7 +18,7 @@ export class EducationService {
     constructor(private http: HttpClient, private appService: AppService, private loadingService: LoaderService){}
 
     loadEducationFromApi(){
-      const data$ = this.http.get('http://localhost:3000/education').pipe( 
+      const data$ = this.http.get(`${urlPath}/education`).pipe( 
         map((response) => {
           return response;
         }),
