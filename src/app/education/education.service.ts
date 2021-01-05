@@ -1,33 +1,46 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http'
-import { Education } from '../interfaces';
 import { BehaviorSubject, Observable } from 'rxjs';
-import {catchError, first, map, shareReplay, tap} from 'rxjs/operators'
+import {
+  catchError,
+  first,
+  map,
+  shareReplay,
+  tap,
+  finalize,
+  take,
+} from 'rxjs/operators';
 import { AppService } from '../app.service';
 import { LoaderService } from '../loader/loader.service';
-import urlPath from '../app.config';
+import { AngularFireDatabase } from '@angular/fire/database';
+
 @Injectable({
   providedIn: 'root',
-}) 
-
+})
 export class EducationService {
+  private educationSubject = new BehaviorSubject(null);
+  education$ = this.educationSubject.asObservable();
 
-    private educationSubject = new BehaviorSubject(null);
-    education$ = this.educationSubject.asObservable();
+  constructor(
+    private loadingService: LoaderService,
+    private database: AngularFireDatabase
+  ) {}
 
-    constructor(private http: HttpClient, private appService: AppService, private loadingService: LoaderService){}
-
-    loadEducationFromApi(){
-      const data$ = this.http.get(`${urlPath}/education`).pipe( 
+  loadEducationFromApi() {
+    const data$ = this.database
+      .object('education')
+      .valueChanges()
+      .pipe(
         map((response) => {
           return response;
         }),
-        tap( resp => this.educationSubject.next(resp)),
-      )
-      if(!this.educationSubject.getValue()) {
-        this.loadingService.showLoaderUntilPageLoaded(data$).subscribe();
-      }
-        
-    }
+        tap((resp) => {
+          this.educationSubject.next(resp);
+        }),
+        take(1)
+      );
 
+    if (!this.educationSubject.getValue()) {
+      this.loadingService.showLoaderUntilPageLoaded(data$).subscribe();
+    }
+  }
 }

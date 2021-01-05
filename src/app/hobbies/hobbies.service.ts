@@ -1,35 +1,34 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
-import urlPath from '../app.config';
+import { map, tap, take } from 'rxjs/operators';
 import { LoaderService } from '../loader/loader.service';
-
+import { AngularFireDatabase } from '@angular/fire/database';
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root',
 })
-
 export class HobbiesService {
+  private hobbiesData = new BehaviorSubject(null);
+  hobbies$ = this.hobbiesData.asObservable();
 
-    private hobbiesData = new BehaviorSubject(null);
-    hobbies$ = this.hobbiesData.asObservable()
-    
-    constructor(private http: HttpClient, private loaderService: LoaderService){
+  constructor(
+    private loaderService: LoaderService,
+    private database: AngularFireDatabase
+  ) {}
 
+  loadHobbiesFromApi() {
+    const data$ = this.database
+      .object('hobbies')
+      .valueChanges()
+      .pipe(
+        map((response) => {
+          return response;
+        }),
+        tap((response) => this.hobbiesData.next(response)),
+        take(1)
+      );
+
+    if (!this.hobbiesData.getValue()) {
+      this.loaderService.showLoaderUntilPageLoaded(data$).subscribe();
     }
-
-    loadHobbiesFromApi() {
-        const data$ = this.http.get(`${urlPath}/hobbies`).pipe(
-            map(response => response),
-            tap(response => this.hobbiesData.next(response))
-        )
-
-        if(!this.hobbiesData.getValue()) {
-            this.loaderService.showLoaderUntilPageLoaded(data$).subscribe();
-        }
-    }
-
-
-
-
+  }
 }

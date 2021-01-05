@@ -2,13 +2,12 @@
     <i class="fa fa-chevron-up"></i>
 </button>
 <section class="slider" >
-   
     <article class="slider__slider" #slider>
         <ng-container *ngIf="type == 'experience'; else skills">
-            <app-experience-slide [experience] = exp *ngFor="let exp of data.experience"></app-experience-slide>
+            <app-experience-slide [experience] = exp *ngFor="let exp of dataValues"></app-experience-slide>
         </ng-container>
         <ng-template #skills>
-            <app-skills-slide [skill] = skillRank *ngFor="let skillRank of data.skills | keyvalue : returnZero"></app-skills-slide>
+            <app-skills-slide [skill] = skillRank *ngFor="let skillRank of dataValues['skills'] | keyvalue : returnZero"></app-skills-slide>
         </ng-template>
        
     </article>
