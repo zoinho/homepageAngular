@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "homepage-e4634": {
+      "hosting": {
+        "homepageAngular": [
+          "homepage-e4634"
+        ]
+      }
+    }
+  }
+}

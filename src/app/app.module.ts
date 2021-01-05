@@ -2,6 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { environment } from '../environments/environment';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,7 +15,7 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { ExperienceComponent } from './experience/experience.component';
 import { LoaderComponent } from './loader/loader.component';
 
-import {LoaderService } from './loader/loader.service';
+import { LoaderService } from './loader/loader.service';
 import { SliderComponent } from './slider/slider.component';
 import { ExperienceSlideComponent } from './slider/experience-slide/experience-slide.component';
 import { SkillsComponent } from './skills/skills.component';
@@ -36,11 +39,13 @@ import { ContactComponent } from './contact/contact.component';
   ],
   imports: [
     BrowserModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [LoaderService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
