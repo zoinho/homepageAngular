@@ -29,6 +29,12 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.skill-jest{
+  &:before {
+    content: $skill-jest;
+  }
+}
+
 .skill-adaptive {
   &:before {
     content: $skill-adaptive;
@@ -57,11 +63,6 @@
 .skill-html5 {
   &:before {
     content: $skill-html5;
-  }
-}
-.skill-illustrator {
-  &:before {
-    content: $skill-illustrator;
   }
 }
 .skill-jquery {
