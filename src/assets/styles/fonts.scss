@@ -29,89 +29,57 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.skill-jest{
-  &:before {
-    content: $skill-jest;
-  }
+.skill-graphql:before {
+  content: "\e911";
 }
-
-.skill-adaptive {
-  &:before {
-    content: $skill-adaptive;
-  }
+.skill-emotion:before {
+  content: "\e903";
 }
-.skill-angular {
-  &:before {
-    content: $skill-angular;
-  }
+.skill-language:before {
+  content: "\e901";
 }
-.skill-bootstrap {
-  &:before {
-    content: $skill-bootstrap;
-  }
+.skill-ux-circle:before {
+  content: "\e907";
 }
-.skill-css {
-  &:before {
-    content: $skill-css;
-  }
+.skill-cypress:before {
+  content: "\e900";
 }
-.skill-github {
-  &:before {
-    content: $skill-github;
-  }
+.skill-node-js-js:before {
+  content: "\e902";
 }
-.skill-html5 {
-  &:before {
-    content: $skill-html5;
-  }
+.skill-redux:before {
+  content: "\e904";
 }
-.skill-jquery {
-  &:before {
-    content: $skill-jquery;
-  }
+.skill-responsive:before {
+  content: "\e905";
 }
-.skill-js {
-  &:before {
-    content: $skill-js;
-  }
+.skill-typescript:before {
+  content: "\e906";
 }
-.skill-linux {
-  &:before {
-    content: $skill-linux;
-  }
+.skill-jest:before {
+  content: "\e908";
 }
-.skill-office {
-  &:before {
-    content: $skill-office;
-  }
+.skill-angular:before {
+  content: "\e909";
 }
-.skill-photoshop {
-  &:before {
-    content: $skill-photoshop;
-  }
+.skill-css:before {
+  content: "\e90a";
 }
-.skill-react {
-  &:before {
-    content: $skill-react;
-  }
+.skill-github-sign:before {
+  content: "\e90b";
 }
-.skill-sass {
-  &:before {
-    content: $skill-sass;
-  }
+.skill-html5:before {
+  content: "\e90c";
 }
-.skill-uk {
-  &:before {
-    content: $skill-uk;
-  }
+.skill-js:before {
+  content: "\e90d";
 }
-.skill-ux {
-  &:before {
-    content: $skill-ux;
-  }
+.skill-photoshop:before {
+  content: "\e90e";
 }
-.skill-wordpress {
-  &:before {
-    content: $skill-wordpress;
-  }
+.skill-react:before {
+  content: "\e90f";
+}
+.skill-sass:before {
+  content: "\e910";
 }

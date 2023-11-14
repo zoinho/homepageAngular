@@ -10,7 +10,9 @@ import { AngularFireDatabase } from '@angular/fire/database';
 })
 export class ExperienceService {
   private experienceSubject = new BehaviorSubject(null);
+
   experience$: Observable<Experience[]> = this.experienceSubject.asObservable();
+
   constructor(
     private loaderService: LoaderService,
     private database: AngularFireDatabase
@@ -22,8 +24,11 @@ export class ExperienceService {
       .valueChanges()
       .pipe(
         map((response) => response),
-        tap((response) => {
+        tap((response: any) => {
+          const experience  = {...response};
+          delete experience.icon;
           this.experienceSubject.next(response);
+
         }),
         take(1)
       );

@@ -22,8 +22,13 @@ export class SkillsService {
       .valueChanges()
       .pipe(
         map((resp) => resp),
-        tap((resp) => {
-          this.skillsData.next(resp);
+        tap((resp: any) => {
+          
+          const skillObj= {icon: resp.icon, skills:
+            {advanced: [...resp.skills.advanced], intermediate: [...resp.skills.intermediate], basic:  [...resp.skills.basic]}
+          }
+          this.skillsData.next(skillObj);
+          console.log(skillObj);
         }),
         take(1)
       );
